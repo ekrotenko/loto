@@ -3,11 +3,15 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 import BootstrapVue from "bootstrap-vue";
+import VueAnalytics from "vue-analytics";
 
 import "bootstrap/dist/css/bootstrap.css";
 import "bootstrap-vue/dist/bootstrap-vue.css";
 
 Vue.use(BootstrapVue);
+Vue.use(VueAnalytics, {
+  id: "UA-121186013-2"
+});
 
 Vue.config.productionTip = false;
 

@@ -1,10 +1,13 @@
 <template>
   <div>
-    <!-- <img src="../assets/loto-small.svg" /> -->
     <div class="content">
       <div :class="{circle: currentCan}">
         <span class="can-number">{{ canText }}</span>
       </div>
+    </div>
+
+    <div v-if="currentCan">
+      <span>Осталось номеров: {{restNumbers}}</span>
     </div>
 
     <div>
@@ -19,7 +22,6 @@
 
         <b-form-group v-else>
           <b-button @click="newGame" variant="outline-success">Новая Игра</b-button>
-          <!-- <span>{{ padding }}</span> -->
           <b-button v-if="!isEnd" @click="nextNumber" variant="outline-primary">Следующий Бочонок</b-button>
         </b-form-group>
       </b-form>
@@ -39,6 +41,9 @@ export default {
     };
   },
   computed: {
+    restNumbers() {
+      return this.numbers.length;
+    },
     isStart() {
       return this.numbers.length === 90;
     },
